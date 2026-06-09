@@ -44,10 +44,10 @@ with tab1:
         st.dataframe(hardtask, hide_index=True)
 with tab3:
     task = st.menu_button("Section..", options=["Easy", "Minimal", "Hard"])
-    if task.strip().lower() == "Easy":
+    if task == "Easy":
         search = st.text_input("Type in your task")
-    elif task.strip().lower() == "Minimal":
+    elif task == "Minimal":
         search = st.text_input("Type in your task")
     else:
-        task.strip().lower() == "Minimal"
+        task == "Minimal"
         search = st.text_input("Type in your task") 
