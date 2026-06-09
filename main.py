@@ -21,6 +21,12 @@ search_query1 = st.text_input("Search Type", placeholder="Type here... ex: Hard"
 if search_query1.strip().lower() == "Easy":
     st.write(f"Results for '{search_query1}':")
     st.dataframe(easytask, hide_index=True)
+elif search_query1.strip().lower() == "Minimal":
+    st.write(f"Results for '{search_query1}':")
+    st.dataframe(easytask, hide_index=True)
+elif search_query1.strip().lower() == "Hard":
+    st.write(f"Results for '{search_query1}':")
+    st.dataframe(easytask, hide_index=True)
 else:
     st.write("Showing all records:")
     st.dataframe(easytask, hide_index=True)
