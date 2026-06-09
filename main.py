@@ -43,7 +43,7 @@ with tab1:
         st.dataframe(minimaltask, hide_index=True)
         st.dataframe(hardtask, hide_index=True)
 with tab3:
-    task = st.menu_button("Section..", options=["Easy", "Minimal", "Hard"])
+    task = st.selectbox("Section..", options=["Easy", "Minimal", "Hard"])
     if task == "Easy":
         search = st.text_input("Type in your task")
     elif task == "Minimal":
