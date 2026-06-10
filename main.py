@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
-tab1, tab2, tab3 = st.tabs(["Tasks", "Shop", "Manage"])
+
+tab1, tab2 = st.tabs(["Tasks", "Manage",])
 with tab1:
     st.title("Work Organization")
 
@@ -20,6 +21,7 @@ with tab1:
         'Easy Task':["Lock the door"],
         'Coins':["4"]
     })
+    df = pd.DataFrame(hardtask, minimaltask, easytask,)
 
     search_query1 = st.text_input("Search Type of Task", placeholder="Type here... ex: Minimal")
 
@@ -38,12 +40,19 @@ with tab1:
         st.dataframe(easytask, hide_index=True)
         st.dataframe(minimaltask, hide_index=True)
         st.dataframe(hardtask, hide_index=True)
-with tab3:
-    task = st.selectbox("Section..", options=["Easy", "Minimal", "Hard"])
+
+with tab2:
+    task = st.selectbox("Section..", options=["Select a section","Easy", "Minimal", "Hard"])
     if task == "Easy":
         search = st.text_input("Type in your task")
+        st.write(f"Successfully added")
     elif task == "Minimal":
         search = st.text_input("Type in your task")
+        st.write(f"Successfully added")
+
+    elif task == "Hard":
+        search = st.text_input("Type in your task")
+
+        st.write(f"Successfully added")
     else:
-        task == "Hard"
-        search = st.text_input("Type in your task") 
+        st.write(f"“The road to success is always under construction.” — Lily Tomlin")
