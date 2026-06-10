@@ -23,26 +23,16 @@ with tab1:
 
     search_query1 = st.text_input("Search Type of Task", placeholder="Type here... ex: Minimal")
 
-    if search_query1.strip().lower() == "Easy":
+    if search_query1.strip().lower() == "easy":
         st.write(f"Results for '{search_query1}':")
-        filtered_easy = easytask[
-            easytask['Easy Task'].str.contains(search_query1, case=False) 
-        ]
+        st.dataframe(easytask, hide_index=True)
+    elif search_query1.strip().lower() == "minimal":
         st.write(f"Results for '{search_query1}':")
-        st.dataframe(filtered_easy, hide_index=True)
-    elif search_query1.strip().lower() == "Minimal":
-        filtered_minimal = minimaltask[
-            minimaltask['Minimal Task'].str.contains(search_query1, case=False) 
-        ]
+        st.dataframe(minimaltask, hide_index=True)
+    elif search_query1.strip().lower() == "hard":
         st.write(f"Results for '{search_query1}':")
-        st.dataframe(filtered_minimal, hide_index=True)
-    elif search_query1.strip().lower() == "Hard":
-        st.write(f"Results for '{search_query1}':")
-        filtered_hard = hardtask[
-            hardtask['Hard Task'].str.contains(search_query1, case=False) 
-        ]
-        st.write(f"Results for '{search_query1}':")
-        st.dataframe(filtered_hard, hide_index=True)
+        st.dataframe(hardtask, hide_index=True)
+
     else:
         st.write("Showing all records:")
         st.dataframe(easytask, hide_index=True)
