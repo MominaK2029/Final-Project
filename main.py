@@ -49,5 +49,5 @@ with tab3:
     elif task == "Minimal":
         search = st.text_input("Type in your task")
     else:
-        task == "Minimal"
+        task == "Hard"
         search = st.text_input("Type in your task") 
