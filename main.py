@@ -14,7 +14,7 @@ with tab1:
     })
     minimaltask = pd.DataFrame({
         'Minimal Task':["Broom the house"],
-        'Coins':["8"]
+        'Coins':["8"] 
     })
     easytask = pd.DataFrame({
         'Easy Task':["Lock the door"],
@@ -25,18 +25,24 @@ with tab1:
 
     if search_query1.strip().lower() == "Easy":
         st.write(f"Results for '{search_query1}':")
-        st.dataframe(easytask, hide_index=True)
         filtered_easy = easytask[
             easytask['Easy Task'].str.contains(search_query1, case=False) 
-            ]
+        ]
         st.write(f"Results for '{search_query1}':")
         st.dataframe(filtered_easy, hide_index=True)
     elif search_query1.strip().lower() == "Minimal":
+        filtered_minimal = minimaltask[
+            minimaltask['Minimal Task'].str.contains(search_query1, case=False) 
+        ]
         st.write(f"Results for '{search_query1}':")
-        st.dataframe(hardtask, hide_index=True)
+        st.dataframe(filtered_minimal, hide_index=True)
     elif search_query1.strip().lower() == "Hard":
         st.write(f"Results for '{search_query1}':")
-        st.dataframe(hardtask, hide_index=True)
+        filtered_hard = hardtask[
+            hardtask['Hard Task'].str.contains(search_query1, case=False) 
+        ]
+        st.write(f"Results for '{search_query1}':")
+        st.dataframe(filtered_hard, hide_index=True)
     else:
         st.write("Showing all records:")
         st.dataframe(easytask, hide_index=True)
