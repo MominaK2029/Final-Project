@@ -8,41 +8,54 @@ with tab1:
     minimaltask = st.data_editor
     easytask = st.data_editor
 
-    hardtask = pd.DataFrame({
-        'Hard Task':["Clean the house"],
-        'Coins':["14"]
-    })
-    minimaltask = pd.DataFrame({
-        'Minimal Task':["Broom the house"],
-        'Coins':["8"] 
-    })
-    easytask = pd.DataFrame({
-        'Easy Task':["Lock the door"],
-        'Coins':["4"]
-    })
+search_query1 = st.text_input("Search Type of Task", placeholder="Type here... ex: Minimal")
 
-    search_query1 = st.text_input("Search Type of Task", placeholder="Type here... ex: Minimal")
-
-    if search_query1.strip().lower() == "easy":
+if search_query1.strip().lower() == "easy":
         st.write(f"Results for '{search_query1}':")
         st.dataframe(easytask, hide_index=True)
-    elif search_query1.strip().lower() == "minimal":
+elif search_query1.strip().lower() == "minimal":
         st.write(f"Results for '{search_query1}':")
         st.dataframe(minimaltask, hide_index=True)
-    elif search_query1.strip().lower() == "hard":
+elif search_query1.strip().lower() == "hard":
         st.write(f"Results for '{search_query1}':")
         st.dataframe(hardtask, hide_index=True)
 
-    else:
+else:
         st.write("Showing all records:")
         st.dataframe(easytask, hide_index=True)
         st.dataframe(minimaltask, hide_index=True)
         st.dataframe(hardtask, hide_index=True)
 with tab2:
-    task = st.selectbox("Section..", options=["Easy", "Minimal", "Hard"])
-    if task == "Easy":
-        search = st.text_input("Type in your task")
-    elif task == "Minimal":
-        search = st.text_input("Type in your task")
-    elif task == "Hard":
-        search = st.text_input("Type in your task") 
+    st.title("Work Organization")
+
+    hardtask = st.data_editor
+    minimaltask = st.data_editor
+    easytask = st.data_editor
+
+    if "Easy Task" not in st.session_state:
+        st.session_state.easytask = pd.DataFrame(
+        {
+            "Task": ["A", "B"],
+            "Coins": [4, 4],
+        }
+    )
+
+
+st.session_state.easytask = st.data_editor(
+    st.session_state.easytask,
+    num_rows="dynamic",  
+    use_container_width=True
+)
+if "Minimal Task" not in st.session_state:
+    st.session_state.minimaltask = pd.DataFrame(
+        {
+            "Task": ["A", "B"],
+            "Coins": [4, 4],
+        }
+)
+
+st.session_state.minimaltask = st.data_editor(
+    st.session_state.easytask,
+    num_rows="dynamic",
+    use_container_width=True
+)
