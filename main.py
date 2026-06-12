@@ -25,37 +25,3 @@ else:
         st.dataframe(easytask, hide_index=True)
         st.dataframe(minimaltask, hide_index=True)
         st.dataframe(hardtask, hide_index=True)
-with tab2:
-    st.title("Work Organization")
-
-    hardtask = st.data_editor
-    minimaltask = st.data_editor
-    easytask = st.data_editor
-
-    if "Easy Task" not in st.session_state:
-        st.session_state.easytask = pd.DataFrame(
-        {
-            "Task": ["A", "B"],
-            "Coins": [4, 4],
-        }
-    )
-
-
-st.session_state.easytask = st.data_editor(
-    st.session_state.easytask,
-    num_rows="dynamic",  
-    use_container_width=True
-)
-if "Minimal Task" not in st.session_state:
-    st.session_state.minimaltask = pd.DataFrame(
-        {
-            "Task": ["A", "B"],
-            "Coins": [4, 4],
-        }
-)
-
-st.session_state.minimaltask = st.data_editor(
-    st.session_state.easytask,
-    num_rows="dynamic",
-    use_container_width=True
-)
