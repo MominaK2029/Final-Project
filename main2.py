@@ -15,8 +15,8 @@ column_config = {
     "Task": st.column_config.TextColumn("Task", help="Enter a Task"),
     "Coins": st.column_config.SelectboxColumn(
         "-",
-        options=["1", "2", "3", "4"],
-        help="Select the person's role"
+        options=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"],
+        help="Select the number of coins"
     )
 }
 
