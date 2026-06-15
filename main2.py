@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd 
-st.title("Tester")
+st.title("Work Organizer")
 easy = {
     "Name": ["Task", "Task", "Task"],
     "Coins": [0, 0, 0,],
@@ -8,7 +8,6 @@ easy = {
 
 df = pd.DataFrame(easy)
 
-st.title("Editable Table with Streamlit Data Editor")
 
 # Configure columns (optional)
 column_config = {
