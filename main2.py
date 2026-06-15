@@ -34,5 +34,5 @@ st.write(edited_df)
 
 # Example: Save changes to CSV
 if st.button("Save Changes"):
-    edited_df.to_csv("updated_data.csv", index=False)
+    edited_df.to_csv("updated_data.csv", index=True)
     st.success("Data saved to updated_data.csv")
